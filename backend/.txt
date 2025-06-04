@@ -1,0 +1,12 @@
+[{
+	"resource": "/c:/Users/VISHAL/Desktop/mongodb-based-project/server.js",
+	"owner": "typescript",
+	"code": "1261",
+	"severity": 8,
+	"message": "Already included file name 'c:/Users/VISHAL/Desktop/mongodb-based-project/routes/questionsAuth.js' differs from file name 'c:/Users/VISHAL/Desktop/mongodb-based-project/routes/Questionsauth.js' only in casing.\n  The file is in the program because:\n    Imported via \"./routes/questionsAuth\" from file 'c:/Users/VISHAL/Desktop/mongodb-based-project/server.js'\n    Root file specified for compilation",
+	"source": "ts",
+	"startLineNumber": 8,
+	"startColumn": 31,
+	"endLineNumber": 8,
+	"endColumn": 55
+}]
