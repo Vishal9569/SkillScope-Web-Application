@@ -9,7 +9,7 @@ require("dotenv").config();
 
 
 router.use(cors({
-  origin: 'http://localhost:5173',
+  origin:'https://skill-scope-web-application.vercel.app',
   credentials: true,
 }));
 
