@@ -32,20 +32,18 @@ const codingQues = require("./models/coding-ques/codingQues");
 const codingModel = require("./models/coding-ques/model");
 
 // CORS Config
-const allowedOrigins = ['https://skill-scope-web-application-rprm.vercel.app'];
+const allowedOrigins = [
+    'https://skill-scope-web-application-rprm.vercel.app',
+    'https://skill-scope-web-application.vercel.app'
+];
 
 app.use(cors({
-    origin: (origin, callback) => {
-        if (!origin || allowedOrigins.includes(origin)) {
-            callback(null, true);
-        } else {
-            callback(new Error('Not allowed by CORS'));
-        }
-    },
+    origin: allowedOrigins,
     methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
     allowedHeaders: ['Content-Type', 'Authorization'],
-    credentials: true
+    credentials: true,
 }));
+
 
 // Middleware
 app.use(express.json());
