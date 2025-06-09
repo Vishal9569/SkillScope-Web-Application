@@ -84,9 +84,4 @@ router.get("/type/:type", async (req, res) => {
   }
 });
 
-
-
-
-
-
 module.exports = router;
