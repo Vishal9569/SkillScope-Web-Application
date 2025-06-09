@@ -2,10 +2,10 @@ const express = require("express");
 const uniModel = require("../models/universalModel/uniModel");
 const codingQues = require("../models/coding-ques/model");
 const projectModel = require("../models/projectQues/projectModel");
-
 const router = express.Router();
 
- 
+const allowedTypes = ['hr', 'behavioral', 'mcq', 'news', 'technical'];
+
 router.get("/all-question", async (req, res) => {
   const { type } = req.query;
 
@@ -19,7 +19,6 @@ router.get("/all-question", async (req, res) => {
   }
 });
 
- 
 router.get("/coding-question", async (req, res) => {
   const { category } = req.query;
 
@@ -27,7 +26,7 @@ router.get("/coding-question", async (req, res) => {
     const filter = category ? { roles: category.toLowerCase() } : {};
     const data = await codingQues.find(filter);
 
-    if (data.length === 0) {
+    if (!data.length) {
       return res.status(404).json({ message: `No questions found for ${category}` });
     }
 
@@ -45,7 +44,7 @@ router.get("/project-question", async (req, res) => {
     const filter = category ? { roles: category.toLowerCase() } : {};
     const data = await projectModel.find(filter);
 
-    if (data.length === 0) {
+    if (!data.length) {
       return res.status(404).json({ message: `No project questions found for ${category}` });
     }
 
@@ -56,18 +55,21 @@ router.get("/project-question", async (req, res) => {
   }
 });
 
- 
-router.get("/type/:type", async (req, res) => {
+router.get("/:type", async (req, res) => {
   const { type } = req.params;
+
+  if (!allowedTypes.includes(type.toLowerCase())) {
+    return res.status(400).json({ error: `Invalid type: ${type}` });
+  }
 
   try {
     const questions = await uniModel.find({ type });
-    if (questions.length === 0) {
+    if (!questions.length) {
       return res.status(404).json({ message: `No questions found for type: ${type}` });
     }
     res.status(200).json(questions);
   } catch (err) {
-    console.error("Error while fetching specific dataset!", err);
+    console.log("Error while fetching specific dataset:", err);
     res.status(500).json({ error: "Internal Server Error" });
   }
 });

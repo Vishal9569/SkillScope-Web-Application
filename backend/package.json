@@ -8,6 +8,7 @@
     "joi": "^17.13.3",
     "jsonwebtoken": "^9.0.2",
     "mongoose": "^8.14.2",
+    "path-to-regexp": "^8.2.0",
     "react-router-dom": "^7.6.0"
   },
   "name": "mongodb-based-project",

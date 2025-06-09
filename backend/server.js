@@ -2,12 +2,19 @@ require("dotenv").config();
 const express = require("express");
 const mongoose = require("mongoose");
 const cors = require("cors");
+const createAdminUser = require("./scripts/initAdmin");
 
 const app = express();
 const port = process.env.PORT || 5000;
 const mongodbCloudKey = process.env.Mongodb_Cluster;
 
-// Models and Data
+// Import Routes
+const authRoutes = require("./routes/auth");
+const pathRouter = require("./routes/pathRouter");
+const userRouter = require("./routes/Dashboard");
+const testSubmitRouter = require("./routes/testSubmission");
+
+// Import Models and Data
 const uniModel = require("./models/universalModel/uniModel");
 const htmlQues = require("./models/universalModel/htmlQues");
 const cssQues = require("./models/universalModel/cssQues");
@@ -19,23 +26,16 @@ const mysqlQues = require("./models/universalModel/mysqlQues");
 const pythonQues = require("./models/universalModel/pythonQues");
 const javaQues = require("./models/universalModel/javaQuesdb");
 const springbootQues = require("./models/universalModel/springbootQues");
-const ProjectSchema = require("./models/projectQues/projectModel");
+const projectModel = require("./models/projectQues/projectModel");
 const projectQues = require("./models/projectQues/projectQues");
 const codingQues = require("./models/coding-ques/codingQues");
-const codingquesModel = require("./models/coding-ques/model");
+const codingModel = require("./models/coding-ques/model");
 
-// Routes
-const authRoutes = require("./routes/auth");
-const pathRouter = require("./routes/pathRouter");
-const userRouter = require("./routes/Dashboard");
-const testSubmitRouter = require("./routes/testSubmission");
-const createAdminUser = require("./scripts/initAdmin");
-
-// CORS config
+// CORS Config
 const allowedOrigins = ['https://skill-scope-web-application-rprm.vercel.app'];
 
 app.use(cors({
-    origin: function (origin, callback) {
+    origin: (origin, callback) => {
         if (!origin || allowedOrigins.includes(origin)) {
             callback(null, true);
         } else {
@@ -47,72 +47,74 @@ app.use(cors({
     credentials: true
 }));
 
-app.options("*", cors()); // handle preflight
-
-// Middlewares
+// Middleware
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
-// API Routes
+// Routes
 app.use("/api/auth", authRoutes);
 app.use("/api/data", pathRouter);
 app.use("/api/user", userRouter);
 app.use("/api/test", testSubmitRouter);
 
+app.get("/", (req, res) => {
+    res.send("Server working well!");
+});
 
-// Global error handler
+// Global Error Handler
 app.use((err, req, res, next) => {
     console.error("Server Error:", err.stack);
     res.status(500).send("Something broke!");
 });
 
-// MongoDB connection
-async function main() {
+// MongoDB Connection
+async function connectToDatabase() {
     try {
-        await mongoose.connect(mongodbCloudKey);
+        await mongoose.connect(mongodbCloudKey, {
+            useNewUrlParser: true,
+            useUnifiedTopology: true,
+        });
         console.log("MongoDB connected");
     } catch (err) {
         console.error("MongoDB connection failed:", err);
         process.exit(1);
     }
 }
-main();
 
-// Seed DB if empty
+// Seed DB if Empty
 const dataInsert = async (model, ques, label) => {
     try {
         const count = await model.countDocuments();
         if (count === 0) {
             await model.insertMany(ques);
-            
+            console.log(`Seeded: ${label}`);
         }
     } catch (err) {
         console.error(`Error initializing ${label}:`, err);
     }
 };
 
-dataInsert(uniModel, htmlQues, "HTML");
-dataInsert(uniModel, cssQues, "CSS");
-dataInsert(uniModel, jsQues, "JavaScript");
-dataInsert(uniModel, reactQues, "React");
-dataInsert(uniModel, mysqlQues, "MySQL");
-dataInsert(uniModel, mongodbQues, "MongoDB");
-dataInsert(uniModel, resApiQues, "REST API");
-dataInsert(uniModel, pythonQues, "Python");
-dataInsert(uniModel, javaQues, "Java");
-dataInsert(uniModel, springbootQues, "Spring Boot");
-dataInsert(ProjectSchema, projectQues, "Project Questions");
-dataInsert(codingquesModel, codingQues, "Coding Questions");
+async function seedDatabase() {
+    await dataInsert(uniModel, htmlQues, "HTML");
+    await dataInsert(uniModel, cssQues, "CSS");
+    await dataInsert(uniModel, jsQues, "JavaScript");
+    await dataInsert(uniModel, reactQues, "React");
+    await dataInsert(uniModel, mysqlQues, "MySQL");
+    await dataInsert(uniModel, mongodbQues, "MongoDB");
+    await dataInsert(uniModel, resApiQues, "REST API");
+    await dataInsert(uniModel, pythonQues, "Python");
+    await dataInsert(uniModel, javaQues, "Java");
+    await dataInsert(uniModel, springbootQues, "Spring Boot");
+    await dataInsert(projectModel, projectQues, "Project Questions");
+    await dataInsert(codingModel, codingQues, "Coding Questions");
+}
 
+(async () => {
+    await connectToDatabase();
+    await seedDatabase();
+    createAdminUser();
 
-app.get("/", (req, res) => {
-    res.send("Server working well!");
-});
-
- 
-createAdminUser();
-
- 
-app.listen(port, () => {
-    console.log(`Server running on port ${port}`);
-});
+    app.listen(port, () => {
+        console.log(`Server running on port ${port}`);
+    });
+})();
