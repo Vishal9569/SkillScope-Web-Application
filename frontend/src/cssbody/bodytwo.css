@@ -1,0 +1,90 @@
+.how-it-works-simple {
+    width: 100%;
+    padding: 4rem 2rem;
+    font-family: 'Inter', sans-serif;
+    color: #1e293b;
+    background: linear-gradient(90deg, #f0f4ff, #dbeafe);
+    /* subtle blue gradient */
+    box-sizing: border-box;
+}
+
+.section-title-center {
+    max-width: 960px;
+    margin: 0 auto 0.5rem auto;
+    text-align: center;
+    font-size: 3rem;
+    font-weight: 800;
+    color: #1e40af;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+}
+
+.section-subtitle-center {
+    max-width: 700px;
+    margin: 0 auto 4rem auto;
+    text-align: center;
+    font-size: 1.25rem;
+    color: #374151;
+    line-height: 1.6;
+    font-weight: 500;
+}
+
+.steps-list {
+    max-width: 960px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    gap: 3rem;
+}
+
+.step-row {
+    display: flex;
+    align-items: center;
+    border-top: 2px solid #93c5fd;
+    /* stronger border color */
+    padding-top: 2.5rem;
+    background: white;
+    border-radius: 12px;
+    box-shadow: 0 8px 20px rgb(59 130 246 / 0.15);
+    padding: 2rem 2.5rem;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.step-row:first-child {
+    border-top: none;
+    padding-top: 0;
+}
+
+.step-row:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 16px 32px rgb(59 130 246 / 0.25);
+}
+
+.step-icon {
+    font-size: 3rem;
+    color: #2563eb;
+    margin-right: 1.5rem;
+    flex-shrink: 0;
+    margin-top: 6px;
+    background: #dbeafe;
+    padding: 0.7rem;
+    border-radius: 50%;
+    box-shadow: 0 2px 8px rgb(37 99 235 / 0.3);
+}
+
+.step-text h3 {
+    font-size: 1.6rem;
+    font-weight: 700;
+    margin: 0 0 0.5rem 0;
+    color: #1e40af;
+    letter-spacing: 0.02em;
+}
+
+.step-text p {
+    margin: 0;
+    color: #4b5563;
+    font-size: 1.1rem;
+    line-height: 1.7;
+    font-weight: 500;
+}

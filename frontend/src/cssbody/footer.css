@@ -1,0 +1,108 @@
+/* Make the whole page work with sticky footer */
+body,
+html,
+#root {
+    height: 100%;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+}
+
+/* Footer container */
+.footer-container {
+    background-color: #f8fafc;
+    color: #1e293b;
+    font-family: 'Inter', sans-serif;
+    border-top: 1px solid #e2e8f0;
+    margin-top: auto;
+    padding: 2rem 1.5rem;
+}
+
+/* Grid layout inside footer */
+.footer-grid {
+    max-width: 900px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+}
+
+.footer-upcoming h3 {
+    color: #475569;
+}
+
+
+/* === Simplified Upcoming Section === */
+.footer-upcoming {
+    text-align: center;
+}
+
+.footer-upcoming h3 {
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 1.6rem;
+    margin-bottom: 0.75rem;
+    color: #0f172a;
+}
+
+.footer-upcoming p {
+    font-size: 1rem;
+    color: #475569;
+    line-height: 1.5;
+    max-width: 600px;
+    margin: 0 auto 1rem;
+}
+
+.battle-highlights {
+    padding-left: 1.2rem;
+    text-align: left;
+    font-size: 0.95rem;
+    color: #334155;
+    margin-left: 2rem;
+}
+
+.battle-highlights li {
+    margin-bottom: 0.4rem;
+}
+
+.footer-note {
+    font-size: 0.9rem;
+    color: #64748b;
+    margin-top: 1rem;
+    padding-right: 7rem;
+}
+
+/* === Footer Bottom Section === */
+.footer-right {
+    border-top: 1px solid #e2e8f0;
+    padding-top: 1.5rem;
+    margin-top: 2rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.75rem;
+    text-align: center;
+}
+
+.footer-social a {
+    margin: 0 0.4rem;
+    color: #475569;
+    font-size: 1.4rem;
+    text-decoration: none;
+}
+
+.footer-links {
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+    font-size: 0.9rem;
+}
+
+.footer-links a {
+    color: #2563eb;
+    text-decoration: none;
+}
+
+.footer-copy {
+    font-size: 0.9rem;
+    color: #64748b;
+}

@@ -1,0 +1,120 @@
+/* Layout Container */
+.card-container {
+    padding: 3rem 2rem;
+    max-width: 1200px;
+    margin: auto;
+    text-align: center;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.body-card {
+    width: 100% !important;
+    height: 400px !important;
+    box-sizing: border-box !important;
+}
+
+
+/* Section Header */
+.section-title {
+    font-size: 2.5rem;
+    font-weight: bold;
+    margin-bottom: 1rem;
+    color: #2c3e50;
+}
+
+.section-subtitle {
+    font-size: 1.1rem;
+    color: #555;
+    max-width: 800px;
+    margin: 0.5rem auto;
+    line-height: 1.6;
+}
+
+/* Grid for Cards */
+.cards-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 2rem;
+    margin-top: 3rem;
+}
+
+/* Individual Card */
+.body-card {
+    background: #ffffff;
+    border-radius: 15px;
+    padding: 1rem;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+    transition: transform 0.2s ease;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    height: 25rem !important;
+    width: 22rem !important;
+
+}
+
+.body-card:hover {
+    transform: translateY(-5px);
+}
+
+/* Title */
+.body-card h2 {
+    font-size: 1.5rem;
+    color: #2c3e50;
+    margin-bottom: 1rem;
+}
+
+/* Description */
+.card-description {
+    font-size: 1rem;
+    color: #444;
+    margin-bottom: 1rem;
+    flex-grow: 1;
+}
+
+/* Tech Stack */
+.tech-stack {
+    margin-top: 1rem;
+    margin-bottom: 1.5rem;
+    text-align: left;
+}
+
+.tech-stack strong {
+    color: #333;
+    display: block;
+    margin-bottom: 0.5rem;
+}
+
+.tech-tags {
+    list-style: none;
+    padding: 0;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+}
+
+.tech-tag {
+    background-color: #e3f2fd;
+    color: #0d47a1;
+    font-size: 0.85rem;
+    padding: 0.4rem 0.8rem;
+    border-radius: 30px;
+    font-weight: 500;
+}
+
+/* Button */
+.btn.btn-primary {
+    margin-top: auto;
+    background-color: #1e88e5;
+    color: white;
+    border: none;
+    padding: 0.7rem 1.4rem;
+    font-size: 1rem;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.btn.btn-primary:hover {
+    background-color: #1565c0;
+}

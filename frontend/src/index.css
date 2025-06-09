@@ -1,0 +1,582 @@
+.form-input {
+    width: 100%;
+    padding: 0.75rem;
+    margin-bottom: 1rem;
+    border-radius: 8px;
+    border: 1px solid #ccc;
+    font-size: 1rem;
+}
+
+.modal-footer {
+    text-align: center;
+    margin-top: 1rem;
+}
+
+.modal-footer-text {
+    color: #555;
+}
+
+.modal-signup-link {
+    color: #2563eb;
+    font-weight: 500;
+    text-decoration: none;
+}
+
+.modal-signup-link:hover {
+    text-decoration: underline;
+    color: #1e40af;
+}
+
+.auth-container {
+    max-width: 420px;
+    margin: 0 auto;
+    padding: 2rem;
+    border-radius: 12px;
+    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.1);
+    background-color: #ffffff;
+}
+
+.auth-header {
+    text-align: center;
+    font-weight: 600;
+    font-size: 1.5rem;
+    margin-bottom: 1.5rem;
+}
+
+.auth-form-group {
+    margin-bottom: 1rem;
+}
+
+.auth-label {
+    display: block;
+    width: 5rem;
+    margin-bottom: 0.5rem;
+    font-weight: 500;
+}
+
+.auth-input {
+    width: 100%;
+    padding: 0.75rem;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    font-size: 1rem;
+}
+
+.auth-button {
+    width: 100%;
+    padding: 0.75rem;
+    background-color: #2563eb;
+    color: #fff;
+    border: none;
+    border-radius: 8px;
+    font-size: 1rem;
+    font-weight: 500;
+    transition: background-color 0.3s ease;
+    margin-top: 1rem;
+}
+
+.auth-button:hover {
+    background-color: #1e40af;
+}
+
+.auth-switch {
+    text-align: center;
+    margin-top: 1rem;
+    font-size: 0.95rem;
+}
+
+.auth-switch button {
+    background: none;
+    border: none;
+    color: #2563eb;
+    font-weight: 500;
+    cursor: pointer;
+    text-decoration: underline;
+}
+
+.auth-switch button:hover {
+    color: #1e40af;
+}
+
+* {
+    padding: 0;
+    margin: 0;
+
+}
+
+.nav-div {
+    display: flex;
+    margin-right: 2rem;
+    gap: 1rem;
+
+}
+
+.logo-Name {
+    display: flex;
+    gap: .5rem;
+
+}
+
+.logo {
+    font-size: 2rem;
+    padding-left: .5rem;
+}
+
+.Body-one {
+    display: flex;
+    padding: 4rem;
+    background-color: whitesmoke;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+.card-body {
+    display: flex;
+    margin: 4rem;
+    gap: 2rem;
+    flex-direction: column;
+}
+
+.bodyimg {
+    margin: 2rem;
+    height: 20rem;
+    width: 25rem;
+}
+
+/* General Navbar Styling */
+.navbar {
+    width: 100%;
+    background-color: #f8f9fa;
+    position: relative;
+    z-index: 10;
+    transition: top 0.3s ease;
+}
+
+.navbar.sticky {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    background-color: #eef1f4;
+    /* Darken the background once sticky */
+    padding: 10px 0;
+}
+
+.logo-Name {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 10px;
+}
+
+.logo {
+    font-size: 2rem;
+    color: #28a745;
+}
+
+.nav-div {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 1.5rem;
+}
+
+.navbar-brand {
+    color: #f6f5f5;
+    font-size: 1.1rem;
+    font-weight: bold;
+    padding: 10px 20px;
+    text-decoration: none;
+}
+
+.navbar-brand:hover {
+    color: #100f0f;
+}
+
+.auth-buttons {
+    display: flex;
+    gap: 1rem;
+    align-items: center;
+}
+
+/* Button Styling */
+.btn {
+    background-color: #0c0c0c;
+    color: white;
+    padding: 8px 16px;
+    border-radius: 5px;
+    border: none;
+}
+
+.btn:hover {
+    background-color: #0e0e0e;
+    color: #f1f1f1;
+}
+
+/* Responsive Design for smaller screens */
+@media (max-width: 768px) {
+    .navbar {
+        padding: 15px 0;
+    }
+
+    .nav-div {
+        flex-direction: column;
+    }
+
+    .auth-buttons {
+        margin-top: 1rem;
+    }
+}
+
+.footer {
+    position: relative;
+    bottom: 0;
+    width: 100%;
+    background-color: #ffffff;
+    color: white;
+    padding: 1rem;
+
+    font-size: 14px;
+}
+
+/* Navbar Styling */
+.navbar {
+    height: 5rem;
+    background-color: #ffffff;
+    display: flex;
+    align-items: center;
+    padding: 0 1.5rem;
+    text-decoration: none;
+}
+
+/* Compass Icon */
+.fa-compass {
+    color: #fe424d;
+    font-size: 2rem;
+
+}
+
+/* Navbar Links */
+.collapse a {
+    font-size: 1rem;
+    color: #000000;
+    text-decoration: none;
+    margin-left: 1rem;
+}
+
+.collapse a:hover {
+    color: #fe424d;
+    text-decoration: none;
+}
+
+/* Footer Container */
+.f-info {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    color: #0c0c0c;
+    padding: 2rem 1rem;
+
+    text-align: center;
+    gap: 1rem;
+}
+
+/* Social Icons Container */
+.f-info-social {
+    display: flex;
+    gap: 1rem;
+    font-size: 1.2rem;
+}
+
+/* Social Icon Styling */
+.f-info-social i {
+    color: #0c0c0c;
+    transition: color 0.3s ease;
+    cursor: pointer;
+}
+
+.f-info-social i:hover {
+    color: #fe424d;
+}
+
+/* Optional: Responsive font sizing */
+@media (max-width: 600px) {
+    .f-info {
+        font-size: 0.9rem;
+    }
+
+    .f-info-social {
+        font-size: 1rem;
+    }
+
+    .collapse a {
+        font-size: 0.95rem;
+    }
+}
+
+/* Style for the container */
+/* ========= GLOBAL LAYOUT ========= */
+.auth-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 2rem;
+    min-height: 100vh;
+    background-color: #f4f7fc;
+}
+
+/* ========= SHARED FORM STYLES ========= */
+.auth-form {
+    width: 100%;
+    max-width: 420px;
+    background-color: #fff;
+    padding: 2rem;
+    border-radius: 15px;
+    border: 2px solid #cde2ff;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.auth-form label {
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+    display: block;
+    color: #333;
+}
+
+.auth-form input {
+    width: 100%;
+    margin-bottom: 1.25rem;
+    padding: 0.75rem;
+    font-size: 1rem;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    background-color: #fdfdfd;
+    transition: border 0.2s ease;
+}
+
+.auth-form input:focus {
+    outline: none;
+    border-color: #007bff;
+}
+
+.auth-form button {
+    width: 100%;
+    padding: 0.75rem;
+    background-color: #007bff;
+    border: none;
+    color: white;
+    font-size: 1rem;
+    font-weight: 600;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.auth-form button:hover {
+    background-color: #0056b3;
+}
+
+/* ========= TOGGLE LINK (e.g. “New user? Sign up”) ========= */
+.auth-toggle {
+    text-align: center;
+    margin-top: 1rem;
+    font-size: 0.95rem;
+    color: #555;
+}
+
+.auth-toggle a {
+    color: #007bff;
+    text-decoration: none;
+    font-weight: 600;
+    margin-left: 4px;
+}
+
+.auth-toggle a:hover {
+    text-decoration: underline;
+}
+
+/* ========= FOOTER ========= */
+.auth-footer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 1rem;
+    background-color: #f8f8f8;
+    color: #0c0c0c;
+    font-size: 0.9rem;
+}
+
+.auth-footer .social-links {
+    display: flex;
+    gap: 1.25rem;
+    margin-top: 0.5rem;
+}
+
+.auth-footer .social-links i {
+    font-size: 1.2rem;
+    color: #0c0c0c;
+    transition: color 0.3s ease;
+    cursor: pointer;
+}
+
+.auth-footer .social-links i:hover {
+    color: #fe424d;
+}
+
+/* ========= RESPONSIVE ========= */
+@media (max-width: 768px) {
+    .auth-form {
+        padding: 1.5rem;
+        width: 90%;
+    }
+
+    .auth-footer {
+        font-size: 0.8rem;
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .auth-footer .social-links i {
+        font-size: 1rem;
+    }
+}
+
+
+
+.header {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 20px;
+}
+
+.content {
+    display: flex;
+    gap: 20px;
+}
+
+.instructions-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    /* full viewport width */
+    height: 100vh;
+    /* full viewport height */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 40px 20px;
+    background-color: #e4e0e0;
+    box-sizing: border-box;
+    overflow: auto;
+
+    z-index: 1000;
+
+}
+
+
+.instructions-header {
+    position: sticky;
+    top: 0;
+    background-color: #e4e1e1;
+    z-index: 10;
+    padding-bottom: 20px;
+    margin-bottom: 10px;
+    text-align: center;
+    border-bottom: 2px solid #ffffff33;
+}
+
+.instructions-header h2 {
+    font-size: 2.4rem;
+    font-weight: bold;
+    color: #333;
+
+
+}
+
+.instructions-header p {
+    font-size: 1.2rem;
+    color: #ed5a5a;
+    margin-bottom: 30px;
+    /* More spacing between paragraph and list */
+}
+
+/* Styling for the instruction list */
+.instructions-body ul {
+    list-style: none;
+    padding: .5rem;
+    margin: 0;
+    text-align: center;
+    max-width: 800px;
+    /* Increased width for better readability */
+    font-size: 1.1rem;
+    /* Slightly larger font size */
+    color: #444;
+    margin-bottom: .2rem;
+    /* Space between list and button */
+    border: 3px solid rgb(57, 153, 250);
+    border-radius: .5rem;
+}
+
+.instructions-body li {
+    margin: 1.5rem;
+    /* More space between list items */
+    line-height: 1.5;
+    /* Improved line-height for better readability */
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.instructions-body li i {
+    font-size: 1.5rem;
+    /* Increased icon size for better visibility */
+    color: #4CAF50;
+    margin-right: 20px;
+    /* More space between icon and text */
+}
+
+.instructions-body li strong {
+    color: #4CAF50;
+    /* Green color for important info */
+    font-weight: bold;
+    /* Added boldness for emphasis */
+}
+
+.inst-icon {
+    margin: .5rem;
+    font-size: larger;
+}
+
+@media (max-width: 768px) {
+    .nav-div {
+        flex-direction: column;
+        gap: 1rem;
+    }
+
+    .auth-form {
+        padding: 1.5rem;
+        width: 90%;
+    }
+
+    .Body-one {
+        flex-direction: column;
+        padding: 2rem 1rem;
+    }
+
+    .card-body {
+        margin: 1rem 0;
+    }
+
+    .footer,
+    .auth-footer {
+        flex-direction: column;
+        text-align: center;
+        font-size: 0.8rem;
+    }
+
+    .social-links i {
+        font-size: 1rem;
+    }
+}

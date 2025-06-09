@@ -1,0 +1,265 @@
+ .feedback-section {
+     max-width: 880px;
+     margin: 0 auto;
+     padding: 2.5rem 1.5rem;
+     font-family: 'Inter', sans-serif;
+     color: #1e293b;
+ }
+
+ .feedback-header h1 {
+     font-size: 2.2rem;
+     margin-bottom: 0.5rem;
+     font-weight: 700;
+ }
+
+ .feedback-subtext {
+     font-size: 1rem;
+     color: #475569;
+     margin-bottom: 2rem;
+ }
+
+ .feedback-summary h2,
+ .feedback-topics h2,
+ .practice-suggestions h2 {
+     font-size: 1.4rem;
+     margin-bottom: 0.25rem;
+ }
+
+ .feedback-summary p,
+ .feedback-topics p,
+ .practice-suggestions p {
+     font-size: 1rem;
+     color: #475569;
+     margin-bottom: 1rem;
+ }
+
+ .score-boxes {
+     display: flex;
+     gap: 1.5rem;
+     margin-bottom: 2rem;
+ }
+
+ .score-box {
+     flex: 1;
+     border: 1px solid #e2e8f0;
+     padding: 1rem;
+     border-radius: 8px;
+     background: #f8fafc;
+     text-align: center;
+ }
+
+ .correct-box {
+     border-left: 4px solid #22c55e;
+ }
+
+ .wrong-box {
+     border-left: 4px solid #ef4444;
+ }
+
+ .score-box strong {
+     font-size: 1.8rem;
+     display: block;
+     color: #0f172a;
+ }
+
+ .score-box span {
+     font-size: 0.95rem;
+     color: #475569;
+ }
+
+ .topics-list {
+     list-style: none;
+     padding: 0;
+     margin-bottom: 2rem;
+ }
+
+ .topic-item {
+     display: flex;
+     justify-content: space-between;
+     padding: 0.8rem 1rem;
+     border: 1px solid #e2e8f0;
+     border-radius: 6px;
+     margin-bottom: 0.6rem;
+     background-color: #fff;
+ }
+
+ .topic-item.pass .status {
+     color: #16a34a;
+     font-weight: 600;
+ }
+
+ .topic-item.fail .status {
+     color: #dc2626;
+     font-weight: 600;
+ }
+
+ .practice-list {
+     list-style: disc;
+     padding-left: 1.5rem;
+     color: #334155;
+     margin-top: 0.5rem;
+ }
+
+ .practice-list li {
+     margin-bottom: 0.4rem;
+     font-size: 1rem;
+ }
+
+ .feedback-footer {
+     text-align: center;
+     margin-top: 3rem;
+ }
+
+ .footer-note {
+     margin-bottom: 1rem;
+     color: #475569;
+     font-size: 1rem;
+ }
+
+ .demo-button {
+     background-color: #2563eb;
+     color: white;
+     padding: 0.7rem 1.5rem;
+     font-size: 1rem;
+     border: none;
+     border-radius: 6px;
+     cursor: pointer;
+     transition: background 0.3s ease;
+ }
+
+ .demo-button:hover {
+     background-color: #1d4ed8;
+ } */
+
+ .feedback-section {
+     max-width: 880px;
+     margin: 0 auto;
+     padding: 2.5rem 1.5rem;
+     font-family: 'Inter', sans-serif;
+     color: #1e293b;
+ }
+
+ .feedback-header h1 {
+     font-size: 2.2rem;
+     margin-bottom: 0.5rem;
+     font-weight: 700;
+ }
+
+ .feedback-subtext {
+     font-size: 1rem;
+     color: #475569;
+     margin-bottom: 2rem;
+ }
+
+ .feedback-summary h2,
+ .feedback-topics h2,
+ .practice-suggestions h2 {
+     font-size: 1.4rem;
+     margin-bottom: 0.25rem;
+ }
+
+ .feedback-summary p,
+ .feedback-topics p,
+ .practice-suggestions p {
+     font-size: 1rem;
+     color: #475569;
+     margin-bottom: 1rem;
+ }
+
+ .score-boxes {
+     display: flex;
+     gap: 1.5rem;
+     margin-bottom: 2rem;
+ }
+
+ .score-box {
+     flex: 1;
+     border: 1px solid #e2e8f0;
+     padding: 1rem;
+     border-radius: 8px;
+     background: #f8fafc;
+     text-align: center;
+ }
+
+ .correct-box {
+     border-left: 4px solid #22c55e;
+ }
+
+ .wrong-box {
+     border-left: 4px solid #ef4444;
+ }
+
+ .score-box strong {
+     font-size: 1.8rem;
+     display: block;
+     color: #0f172a;
+ }
+
+ .score-box span {
+     font-size: 0.95rem;
+     color: #475569;
+ }
+
+ .topics-list {
+     list-style: none;
+     padding: 0;
+     margin-bottom: 2rem;
+ }
+
+ .topic-item {
+     display: flex;
+     justify-content: space-between;
+     padding: 0.8rem 1rem;
+     border: 1px solid #e2e8f0;
+     border-radius: 6px;
+     margin-bottom: 0.6rem;
+     background-color: #fff;
+ }
+
+ .topic-item.pass .status {
+     color: #16a34a;
+     font-weight: 600;
+ }
+
+ .topic-item.fail .status {
+     color: #dc2626;
+     font-weight: 600;
+ }
+
+ .practice-list {
+     list-style: disc;
+     padding-left: 1.5rem;
+     color: #334155;
+     margin-top: 0.5rem;
+ }
+
+ .practice-list li {
+     margin-bottom: 0.4rem;
+     font-size: 1rem;
+ }
+
+ .feedback-footer {
+     text-align: center;
+     margin-top: 3rem;
+ }
+
+ .footer-note {
+     margin-bottom: 1rem;
+     color: #475569;
+     font-size: 1rem;
+ }
+
+ .demo-button {
+     background-color: #2563eb;
+     color: white;
+     padding: 0.7rem 1.5rem;
+     font-size: 1rem;
+     border: none;
+     border-radius: 6px;
+     cursor: pointer;
+     transition: background 0.3s ease;
+ }
+
+ .demo-button:hover {
+     background-color: #1d4ed8;
+ }
