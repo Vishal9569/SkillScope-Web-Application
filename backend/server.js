@@ -57,7 +57,7 @@ app.use(express.urlencoded({ extended: true }));
 app.use("/api/auth", authRoutes);
 app.use("/api/data", pathRouter);
 app.use("/api/user", userRouter);
-app.use("/api/user-test", testSubmitRouter);
+app.use("/api/test", testSubmitRouter);
 
 // Global error handler
 app.use((err, req, res, next) => {
