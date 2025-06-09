@@ -55,20 +55,10 @@ router.get("/project-question", async (req, res) => {
   }
 });
 
-<<<<<<< HEAD
-router.get("/:type", async (req, res) => {
-  const { type } = req.params;
-
-  if (!allowedTypes.includes(type.toLowerCase())) {
-    return res.status(400).json({ error: `Invalid type: ${type}` });
-  }
-
-=======
 
 router.get("/type/:type", async (req, res) => {
   const { type } = req.params;
 
->>>>>>> b076a53b7c995b9f29a2bb39b8a57eb19b0434f8
   try {
     const questions = await uniModel.find({ type });
     if (!questions.length) {
@@ -76,11 +66,9 @@ router.get("/type/:type", async (req, res) => {
     }
     res.status(200).json(questions);
   } catch (err) {
-<<<<<<< HEAD
+
     console.log("Error while fetching specific dataset:", err);
-=======
-    console.error("Error while fetching specific dataset!", err);
->>>>>>> b076a53b7c995b9f29a2bb39b8a57eb19b0434f8
+  
     res.status(500).json({ error: "Internal Server Error" });
   }
 });
