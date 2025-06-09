@@ -1,0 +1,18 @@
+# Node dependencies
+**/node_modules/
+
+# dotenv environment files (secrets)
+**/.env
+
+# Log files
+*.log
+
+# OS/system files
+.DS_Store
+Thumbs.db
+
+# IDE/project files
+.vscode/
+.idea/
+*.swp
+ 
