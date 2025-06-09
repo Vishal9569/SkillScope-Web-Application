@@ -29,12 +29,16 @@ const createAdminUser = require("./scripts/initAdmin");
 
 const mongodbCloudKey = process.env.Mongodb_Cluster;
 
+const allowedOrigins = ['https://skill-scope-web-application-rprm.vercel.app'];
+
 app.use(cors({
-    origin: 'http://localhost:5173',
+    origin: allowedOrigins,
+    methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
+    allowedHeaders: ['Content-Type', 'Authorization'],
     credentials: true,
 }));
 
-app.use(cors());
+
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
@@ -62,8 +66,8 @@ const dataInsert = async (model, ques, label) => {
         const count = await model.countDocuments();
         if (count === 0) {
             await model.insertMany(ques);
-             
-        }  
+
+        }
     } catch (err) {
         console.error(`Error initializing ${label}:`, err);
     }
