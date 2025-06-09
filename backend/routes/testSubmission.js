@@ -30,14 +30,14 @@ router.post("/submit", verifyToken, async (req, res) => {
             score = Math.round((correctAnswers / totalQuestions) * 100);
             evaluationStatus = "evaluated";
         } else if (test.type === "code" || test.type === "project") {
-            const result = await JudgeAPI(code, language); // auto-eval logic
+            const result = await JudgeAPI(code, language);  
             score = result.success ? 100 : 0;
             evaluationStatus = result.success ? "evaluated" : "manual";
         }
 
         const now = new Date();
 
-        // Save submission to centralized Submission collection
+        
         const submission = new Submission({
             testId,
             userId: user._id,
@@ -51,10 +51,10 @@ router.post("/submit", verifyToken, async (req, res) => {
 
         await submission.save();
 
-        // Also push summary to user's testHistory
+        
         user.testHistory.push({
             testId,
-            startedAt: now, // You may want to accept a real start time from req.body if available
+            startedAt: now,  
             submittedAt: now,
             score,
             correctAnswers,

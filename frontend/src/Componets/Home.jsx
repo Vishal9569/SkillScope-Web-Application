@@ -14,7 +14,7 @@ const Home = () => {
     const location = useLocation();
     const navigate = useNavigate();
     const [modalOpen, setModalOpen] = useState(false);
-    const [authMode, setAuthMode] = useState('login'); // 'login' or 'signup'
+    const [authMode, setAuthMode] = useState('login');  
     const [isLoggedIn, setIsLoggedIn] = useState(!!localStorage.getItem('token'));
 
     useEffect(() => {

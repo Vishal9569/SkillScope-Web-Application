@@ -78,7 +78,7 @@ export const AssessmentProvider = ({ children }) => {
         }
 
         const headers = { Authorization: `Bearer ${token}` };
-        const BASE_URL = 'http://localhost:8080/api/data';
+        const BASE_URL = 'https://skillscope.onrender.com/api/data';
 
         const mcqTypesMap = {
             backend: ['js', 'mongodb', 'sql', 'restapi'],
@@ -97,7 +97,7 @@ export const AssessmentProvider = ({ children }) => {
             let mcqData = mcqResults.flat();
 
             mcqData = mcqData.sort(() => 0.5 - Math.random()).slice(0, 20);
-            console.log(mcqData)
+
 
             // Fetch coding & project questions
             const codingRes = await fetch(`${BASE_URL}/coding-question?category=${category}`, { headers });

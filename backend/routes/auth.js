@@ -20,19 +20,19 @@ router.post("/register", async (req, res) => {
   try {
     const { error, value } = registerSchema.validate(req.body);
     if (error) return res.status(400).json({ error: error.details[0].message });
-    console.log("Register attempt with:", value);  // <-- Add this
+    
     const { name, email, password } = value;
     const normalizedEmail = email.toLowerCase().trim();
 
     const existingUser = await User.findOne({ email: normalizedEmail });
     if (existingUser) return res.status(400).json({ error: "User already exists" });
-    console.log("User already exists:", normalizedEmail);
+    
     const hashedPassword = await bcrypt.hash(password, 10);
     const newUser = await User.create({ name, email: normalizedEmail, password: hashedPassword });
 
     res.status(201).json({ message: "User created", userId: newUser._id });
   } catch (err) {
-    console.error("❌ Registration error:", err);
+    console.error(" Registration error:", err);
     res.status(500).json({ error: "Internal Server Error" });
   }
 });
@@ -66,7 +66,7 @@ router.post("/login", async (req, res) => {
 
     res.json({ token });
   } catch (err) {
-    console.error("❌ Login error:", err);
+    console.error(" Login error:", err);
     res.status(500).json({ error: "Internal Server Error" });
   }
 });

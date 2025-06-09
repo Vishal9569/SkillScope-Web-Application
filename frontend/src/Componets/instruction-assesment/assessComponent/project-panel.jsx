@@ -93,7 +93,7 @@ const ProjectPanel = ({ question }) => {
             URL.revokeObjectURL(blobUrlRef.current);
         }
 
-        setOutput(''); // clear previous output before run
+        setOutput('');  
 
         const wrappedCode = `
       <script>

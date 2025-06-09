@@ -62,10 +62,8 @@ const dataInsert = async (model, ques, label) => {
         const count = await model.countDocuments();
         if (count === 0) {
             await model.insertMany(ques);
-            console.log(`${label} added to Database!`);
-        } else {
-            console.log(`${label} exists.`);
-        }
+             
+        }  
     } catch (err) {
         console.error(`Error initializing ${label}:`, err);
     }
@@ -89,9 +87,7 @@ app.get("/", (req, res) => {
 })
 
 createAdminUser();
-app.listen(port, () => {
-    console.log("app listen on 8080");
-})
+app.listen(port);
 
 
 

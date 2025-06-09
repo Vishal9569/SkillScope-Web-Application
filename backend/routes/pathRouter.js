@@ -12,7 +12,7 @@ router.get("/all-question", async (req, res) => {
   try {
     let query = {};
     if (type) {
-      query.type = type; // Filter by type if provided
+      query.type = type;  
     }
 
     const dataset = await uniModel.find(query);
@@ -25,7 +25,7 @@ router.get("/all-question", async (req, res) => {
 
 
 router.get("/coding-question", async (req, res) => {
-  const { category } = req.query; // frontend sends this as ?category=frontend
+  const { category } = req.query;  
 
   try {
     const filter = category

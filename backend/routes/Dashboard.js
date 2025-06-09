@@ -13,7 +13,7 @@ router.get("/dashboard", verifyToken, async (req, res) => {
             return res.status(404).json({ error: "User not found" });
         }
 
-        // 🔐 Admin View
+        //  Admin View
         if (user.role === "admin") {
             const users = await User.find().select("name email roles createdAt");
             const submissions = await TestSubmission.find();

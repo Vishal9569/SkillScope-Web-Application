@@ -3,7 +3,7 @@ const User = require("../models/userModel/user");
 const bcrypt = require("bcrypt");
 
 async function createAdminUser() {
-  const adminEmail = "vk965431@gmail.com.com";
+  const adminEmail = "vk965431@gmail.com";
   const existing = await User.findOne({ email: adminEmail });
 
   if (!existing) {
@@ -14,7 +14,7 @@ async function createAdminUser() {
       password :"Vishal@_1234",
       role: "admin",
     });
-    console.log("✅ Admin created");
+    
   }
 }
 

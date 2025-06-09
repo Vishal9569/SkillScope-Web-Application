@@ -22,7 +22,7 @@ const Signup = () => {
                 email: normalizedEmail,
             };
 
-            await axios.post('http://localhost:8080/api/auth/register', payload);
+            await axios.post('https://skillscope.onrender.com/api/auth/register', payload);
             navigate('/');
             toast.success("Signup Successful!");
         } catch (error) {

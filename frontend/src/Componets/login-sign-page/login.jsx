@@ -25,7 +25,7 @@ const Login = ({ onLogin }) => {
                 password: formData.password,
             };
 
-            const response = await axios.post('http://localhost:8080/api/auth/login', payload);
+            const response = await axios.post('https://skillscope.onrender.com/api/auth/login', payload);
             const { token } = response.data;
 
             localStorage.setItem('token', token);
