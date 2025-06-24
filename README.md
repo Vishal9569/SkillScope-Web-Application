@@ -1,5 +1,7 @@
-
 SkillScope-Web-Application
+
+![Screenshot 2025-06-14 110510](https://github.com/user-attachments/assets/37ae6f47-be25-470c-bb2d-2d93221242cf)
+
 SkillScope is a modern, web-based, role-based assessment platform designed to help organizations evaluate skills, identify talent, and streamline hiring or internal training processes.
 
 🌟 Features
@@ -19,17 +21,20 @@ Manage users, roles, assessments, and reports from a centralized panel.
 Supports multiple roles: Admin, Assessor, and Candidate.
 
 🚀 Tech Stack
-Frontend: React.js )
+Frontend: React.js
 
-Backend: Node.js 
+Backend: Node.js
 
-Database: MongoDB 
+Database: MongoDB
 
 Authentication: JWT / OAuth
 
-Deployment: on Vercel 
+Deployment: Vercel
 
 📦 Installation
+bash
+Copy
+Edit
 # Clone the repository
 git clone https://github.com/yourusername/SkillScope-Web-Application.git
 cd SkillScope-Web-Application
@@ -49,27 +54,20 @@ Assessors can evaluate candidate submissions.
 Candidates can take role-specific assessments through a guided UI.
 
 📂 Folder Structure (Sample)
+bash
+Copy
+Edit
 /client        # Frontend code
 /server        # Backend API
 /config        # Configuration files
 /public        # Static assets
 .env.example   # Sample environment file
-
 🧪 Testing
+bash
+Copy
+Edit
 # Run tests
 npm run test
-
-📌 Contributing
-Fork the repo
-
-Create your feature branch (git checkout -b feature/your-feature)
-
-Commit your changes (git commit -m 'Add some feature')
-
-Push to the branch (git push origin feature/your-feature)
-
-Open a Pull Request
-
 📄 License
 This project is licensed under the MIT License. See the LICENSE file for details.
 
@@ -78,10 +76,3 @@ Inspired by modern hiring and skill development challenges.
 
 Thanks to all contributors and testers.
 
-Let me know the exact tech stack or features if you'd like a tailored version!
-
-
-
-
-No file chosenNo file chosen
-ChatGPT can make mistakes. Check important info. See Cookie Preferences.
