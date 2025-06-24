@@ -39,34 +39,49 @@ Edit
 git clone https://github.com/yourusername/SkillScope-Web-Application.git
 cd SkillScope-Web-Application
 
-# Install dependencies
+# Install frontend dependencies
+cd frontend
 npm install
+npm run dev
 
-# Start the development server
+# In a new terminal, install backend dependencies
+cd ../backend
+npm install
 npm start
-⚠️ Make sure to set up your .env file. See .env.example for reference.
+⚠️ Make sure to create .env files for both frontend and backend. See .env.example for guidance.
 
-🛠️ Usage
-Admins can create assessments tied to roles.
-
-Assessors can evaluate candidate submissions.
-
-Candidates can take role-specific assessments through a guided UI.
-
-📂 Folder Structure (Sample)
-bash
+📁 Project Structure
+lua
 Copy
 Edit
-/client        # Frontend code
-/server        # Backend API
-/config        # Configuration files
-/public        # Static assets
-.env.example   # Sample environment file
+SkillScope-Web-Application/
+├── frontend/
+│   ├── public/
+│   ├── src/
+│   ├── index.html
+│   ├── vite.config.js
+│   ├── package.json
+│   └── other config files...
+│
+├── backend/
+│   ├── middleware/
+│   ├── models/
+│   ├── routes/
+│   ├── scripts/
+│   ├── utils/
+│   ├── validators/
+│   ├── server.js
+│   └── package.json
 🧪 Testing
 bash
 Copy
 Edit
-# Run tests
+# Frontend tests
+cd frontend
+npm run test
+
+# Backend tests (if available)
+cd ../backend
 npm run test
 📄 License
 This project is licensed under the MIT License. See the LICENSE file for details.
@@ -75,4 +90,5 @@ This project is licensed under the MIT License. See the LICENSE file for details
 Inspired by modern hiring and skill development challenges.
 
 Thanks to all contributors and testers.
+
 
