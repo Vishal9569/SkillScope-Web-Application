@@ -1,6 +1,14 @@
 import React from 'react';
-
+import { useNavigate } from 'react-router-dom';
 const Body = () => {
+
+    const handleStartAssessment = (e) => {
+        e.preventDefault();
+        const section = document.getElementById('assessment-section');
+        if (section) {
+            section.scrollIntoView({ behavior: 'smooth' });
+        }
+    };
     return (
         <section className="body-one">
             <div className="body-content">
@@ -17,7 +25,9 @@ const Body = () => {
                         <li><strong>Learn:</strong> Understand your strengths and areas for improvement.</li>
                         <li><strong>Improve:</strong> Get guided recommendations and keep growing.</li>
                     </ul>
-                    <a href="#" className="btn-primary">
+                    <a href="#assessment-section"
+                        onClick={handleStartAssessment}
+                        className="btn-primary">
                         Start Assessment
                     </a>
                 </div>

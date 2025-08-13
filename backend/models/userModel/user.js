@@ -16,13 +16,10 @@ const userSchema = new mongoose.Schema({
       type: String,
       required: true,
    },
-
-
-   // App system role (admin vs user)
    role: {
       type: String,
-      enum: ["user", "admin"],
-      default: "user",
+      enum: ['user', 'admin'],
+      default: 'user'
    },
 
    lastLogin: {
@@ -30,22 +27,6 @@ const userSchema = new mongoose.Schema({
       default: null,
    },
 
-   // Track test submissions
-   testHistory: [
-      {
-         testId: { type: mongoose.Schema.Types.ObjectId, ref: "Test" },
-         startedAt: Date,
-         submittedAt: Date,
-         score: Number,
-         correctAnswers: Number,
-         totalQuestions: Number,
-         evaluationStatus: {
-            type: String,
-            enum: ["pending", "evaluated", "manual"],
-            default: "pending",
-         },
-      },
-   ],
 });
 
 module.exports = mongoose.model("user", userSchema);

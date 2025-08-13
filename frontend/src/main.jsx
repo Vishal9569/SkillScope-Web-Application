@@ -1,5 +1,8 @@
 import { StrictMode } from 'react'
 import { createRoot } from 'react-dom/client'
+import { BrowserRouter } from
+  'react-router-dom';
+import { AuthProvider } from "./context/AuthContext.jsx";
 import './index.css'
 import './cssbody/Body-three.css'
 import './cssbody/bodyone.css'
@@ -20,6 +23,10 @@ import 'react-toastify/dist/ReactToastify.css';
 
 createRoot(document.getElementById('root')).render(
   <StrictMode>
-    <App />
-  </StrictMode>,
+    <BrowserRouter>
+      <AuthProvider>
+        <App />
+      </AuthProvider>
+    </BrowserRouter>
+  </StrictMode>
 )

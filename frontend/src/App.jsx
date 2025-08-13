@@ -1,4 +1,4 @@
-import { BrowserRouter as Router, Routes, Route, useLocation, Navigate } from 'react-router-dom';
+import { Routes, Route, useLocation, Navigate } from 'react-router-dom';
 import { useEffect, useState } from 'react';
 import Home from './Componets/Home';
 import Signup from './Componets/login-sign-page/Signup';
@@ -18,7 +18,6 @@ function AppWrapper() {
   const [isFullscreen, setIsFullscreen] = useState(false);
   const { state } = useAssessment();
 
-  // Decode token on mount
   useEffect(() => {
     const token = localStorage.getItem('token');
     if (token) {
@@ -31,7 +30,6 @@ function AppWrapper() {
     }
   }, []);
 
-  // Detect fullscreen mode
   useEffect(() => {
     const handleFullscreenChange = () => {
       setIsFullscreen(!!document.fullscreenElement);
@@ -54,7 +52,6 @@ function AppWrapper() {
     setUser(userData);
   };
 
-  // ✅ Use questions from context
   const ProtectedAssessmentRoute = () => {
     const hasQuestions =
       state.questions.mcq.length ||
@@ -92,11 +89,9 @@ function AppWrapper() {
 
 function App() {
   return (
-    <Router>
-      <AssessmentProvider>
-        <AppWrapper />
-      </AssessmentProvider>
-    </Router>
+    <AssessmentProvider>
+      <AppWrapper />
+    </AssessmentProvider>
   );
 }
 

@@ -23,7 +23,7 @@ const Bodythree = ({ onStart }) => {
     ];
 
     return (
-        <div className="card-container">
+        <div className="card-container" id="assessment-section">
             <h1 className="section-title">Welcome to the Skill Assessment Section</h1>
             <p className="section-subtitle">
                 This test module is designed to evaluate your technical proficiency, problem-solving abilities,
@@ -33,9 +33,9 @@ const Bodythree = ({ onStart }) => {
                 Each role-specific test includes multiple sections:
             </p>
             <ul className="section-details">
-                 <strong>MCQ:</strong> Assess your understanding of core concepts, syntax, and best practices. <br />
+                <strong>MCQ:</strong> Assess your understanding of core concepts, syntax, and best practices. <br />
                 <strong>Coding:</strong> Solve real-time algorithmic or functional problems using your preferred language. <br />
-                 <strong>Project Task:</strong> Analyze a small project brief and deliver a practical implementation strategy. <br />
+                <strong>Project Task:</strong> Analyze a small project brief and deliver a practical implementation strategy. <br />
             </ul>
             <p className="section-subtitle">
                 Select your preferred track below to begin your test. The assessment is timed and must be completed in fullscreen mode.

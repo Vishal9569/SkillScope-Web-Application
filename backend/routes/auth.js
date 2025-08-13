@@ -1,42 +1,58 @@
 const express = require("express");
 const bcrypt = require("bcrypt");
 const jwt = require("jsonwebtoken");
-const User = require("../models/userModel/user");
-const { registerSchema, loginSchema } = require("../validators/userValidator");
-const router = express.Router();
 const cors = require("cors");
+const User = require("../models/userModel/user");
+const { loginSchema } = require("../validators/userValidator"); // removed registerSchema
+const router = express.Router();
+
 require("dotenv").config();
 
-
 router.use(cors({
-  origin:'https://skill-scope-web-application.vercel.app',
+  origin: 'http://localhost:5173',
   credentials: true,
 }));
-
 router.use(express.json());
 router.use(express.urlencoded({ extended: true }));
 
+// SIGNUP — returns token so user is logged in instantly
 router.post("/register", async (req, res) => {
   try {
-    const { error, value } = registerSchema.validate(req.body);
-    if (error) return res.status(400).json({ error: error.details[0].message });
-    
-    const { name, email, password } = value;
+    const { name, email, password } = req.body;
     const normalizedEmail = email.toLowerCase().trim();
 
     const existingUser = await User.findOne({ email: normalizedEmail });
     if (existingUser) return res.status(400).json({ error: "User already exists" });
-    
+
     const hashedPassword = await bcrypt.hash(password, 10);
     const newUser = await User.create({ name, email: normalizedEmail, password: hashedPassword });
 
-    res.status(201).json({ message: "User created", userId: newUser._id });
+    // Create token just like login
+    const token = jwt.sign(
+      { userId: newUser._id, name: newUser.name, role: newUser.role || "user" },
+      process.env.JWT_SECRET,
+      { expiresIn: "1h" }
+    );
+
+    res.status(201).json({
+      message: "User created",
+      token,
+      user: {
+        id: newUser._id,
+        name: newUser.name,
+        email: newUser.email,
+        role: newUser.role || "user"
+      }
+    });
+
   } catch (err) {
-    console.error(" Registration error:", err);
+    console.error("Registration error:", err);
     res.status(500).json({ error: "Internal Server Error" });
   }
 });
 
+
+// LOGIN — unchanged
 router.post("/login", async (req, res) => {
   try {
     const { error, value } = loginSchema.validate(req.body);
@@ -64,12 +80,14 @@ router.post("/login", async (req, res) => {
       { expiresIn: "1h" }
     );
 
-    res.json({ token });
+    res.json({
+      token,
+      user: { id: user._id, name: user.name, role: user.role || "user" }
+    });
   } catch (err) {
-    console.error(" Login error:", err);
+    console.error("Login error:", err);
     res.status(500).json({ error: "Internal Server Error" });
   }
 });
-
 
 module.exports = router;

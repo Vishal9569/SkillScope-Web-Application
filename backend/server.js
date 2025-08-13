@@ -3,15 +3,17 @@ const express = require("express");
 const mongoose = require("mongoose");
 const cors = require("cors");
 const createAdminUser = require("./scripts/initAdmin");
+const cron = require('node-cron');
 
 const app = express();
-const port = process.env.PORT || 5000;
+const port = process.env.PORT || 8080;
 const mongodbCloudKey = process.env.Mongodb_Cluster;
 
 // Import Routes
 const authRoutes = require("./routes/auth");
 const pathRouter = require("./routes/pathRouter");
 const userRouter = require("./routes/Dashboard");
+
 const testSubmitRouter = require("./routes/testSubmission");
 
 // Import Models and Data
@@ -31,9 +33,12 @@ const projectQues = require("./models/projectQues/projectQues");
 const codingQues = require("./models/coding-ques/codingQues");
 const codingModel = require("./models/coding-ques/model");
 
+
 const allowedOrigins = [
     'https://skill-scope-web-application-rprm.vercel.app',
-    'https://skill-scope-web-application.vercel.app'
+    'https://skill-scope-web-application.vercel.app',
+    'http://localhost:5173'
+
 ];
 
 app.use(cors({
@@ -43,9 +48,7 @@ app.use(cors({
     credentials: true,
 }));
 
-
-
-// Middleware
+// Middleware // 
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
@@ -54,6 +57,7 @@ app.use("/api/auth", authRoutes);
 app.use("/api/data", pathRouter);
 app.use("/api/user", userRouter);
 app.use("/api/test", testSubmitRouter);
+
 
 app.get("/", (req, res) => {
     res.send("Server working well!");
@@ -68,16 +72,22 @@ app.use((err, req, res, next) => {
 // MongoDB Connection
 async function connectToDatabase() {
     try {
-        await mongoose.connect(mongodbCloudKey, {
-            useNewUrlParser: true,
-            useUnifiedTopology: true,
-        });
+        await mongoose.connect(mongodbCloudKey);
         console.log("MongoDB connected");
     } catch (err) {
         console.error("MongoDB connection failed:", err);
         process.exit(1);
     }
 }
+
+cron.schedule('*/5 * * * *', async () => {
+    try {
+        await mongoose.connection.db.admin().ping();
+        console.log("MongoDB pinged at", new Date().toLocaleTimeString());
+    } catch (err) {
+        console.error("Error pinging MongoDB:", err);
+    }
+});
 
 // Seed DB if Empty
 const dataInsert = async (model, ques, label) => {

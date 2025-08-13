@@ -1,33 +1,48 @@
-import React, { useState } from 'react';
+import React, { useState, useContext } from 'react';
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
 import { toast } from 'react-toastify';
+import 
+{AuthContext} from '../../context/AuthContext';
+
 const Signup = () => {
-    const [form, setForm] = useState({ name: '', email: '', password: '', role: 'user' });
+    const [form, setForm] = useState({ name: '', email: '', password: '' });
     const [loading, setLoading] = useState(false);
     const navigate = useNavigate();
+    const { setUser } = useContext(AuthContext); 
 
     const handleChange = (e) => {
         const { name, value } = e.target;
         setForm((prev) => ({ ...prev, [name]: value }));
     };
+
     const handleSubmit = async (e) => {
         e.preventDefault();
         setLoading(true);
 
         try {
-            const normalizedEmail = form.email.trim().toLowerCase();
             const payload = {
-                ...form,
-                email: normalizedEmail,
+                name: form.name.trim(),
+                email: form.email.trim().toLowerCase(),
+                password: form.password
             };
 
-            await axios.post('https://skillscope.onrender.com/api/auth/register', payload);
-            navigate('/');
+            const { data } = await axios.post(
+                'http://localhost:8080/api/auth/register',
+                payload,
+                { headers: { 'Content-Type': 'application/json' } }
+            );
+
+            
+            localStorage.setItem("token", data.token);
+            setUser(data.user);
+
             toast.success("Signup Successful!");
+            navigate('/');
+
         } catch (error) {
-            if (error.response && error.response.status === 400) {
-                toast.error('User already exists');
+            if (error.response?.data?.error) {
+                toast.error(error.response.data.error);
             } else {
                 toast.error('Signup failed');
             }
@@ -35,7 +50,6 @@ const Signup = () => {
             setLoading(false);
         }
     };
-
 
     return (
         <div className="container mt-5">

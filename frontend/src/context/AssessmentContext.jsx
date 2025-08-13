@@ -78,7 +78,7 @@ export const AssessmentProvider = ({ children }) => {
         }
 
         const headers = { Authorization: `Bearer ${token}` };
-        const BASE_URL = 'https://skillscope.onrender.com/api/data';
+        const BASE_URL = 'http://localhost:8080/api/data';
 
         const mcqTypesMap = {
             backend: ['js', 'mongodb', 'sql', 'restapi'],
