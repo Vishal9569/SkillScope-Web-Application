@@ -34,20 +34,13 @@ const codingQues = require("./models/coding-ques/codingQues");
 const codingModel = require("./models/coding-ques/model");
 
 
-const allowedOrigins = [
-    'https://skill-scope-web-application-rprm.vercel.app',
-    'https://skill-scope-web-application-l5l8-jjssiyp4c-vishal9569s-projects.vercel.app',
-    'http://localhost:5173'
+ 
 
-];
+app.use(cors());
 
 app.use(cors({
-    origin: allowedOrigins,
-    methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
-    allowedHeaders: ['Content-Type', 'Authorization'],
-    credentials: true,
-}));
-
+    origin:'*',
+    credentials:true}));
 // Middleware // 
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
