@@ -36,8 +36,7 @@ const codingModel = require("./models/coding-ques/model");
 
 const allowedOrigins = [
     'https://skill-scope-web-application-rprm.vercel.app',
-    'https://skill-scope-web-application-l5l8-jjssiyp4c-vishal9569s-projects.vercel.app
-',
+    'https://skill-scope-web-application-l5l8-jjssiyp4c-vishal9569s-projects.vercel.app',
     'http://localhost:5173'
 
 ];
