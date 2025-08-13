@@ -9,7 +9,7 @@ const router = express.Router();
 require("dotenv").config();
 
 router.use(cors({
-  origin: 'https://skill-scope-web-application-l5l8.vercel.app',
+  origin: 'https://skill-scope-web-application-l5l8-jjssiyp4c-vishal9569s-projects.vercel.app/',
   credentials: true,
 }));
 router.use(express.json());
