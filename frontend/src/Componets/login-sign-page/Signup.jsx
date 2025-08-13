@@ -28,7 +28,7 @@ const Signup = () => {
             };
 
             const { data } = await axios.post(
-                'http://localhost:8080/api/auth/register',
+                'https://skillscope.onrender.com/api/auth/register',
                 payload,
                 { headers: { 'Content-Type': 'application/json' } }
             );
