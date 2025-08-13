@@ -9,7 +9,7 @@ const router = express.Router();
 require("dotenv").config();
 
 router.use(cors({
-  origin: 'http://localhost:5173',
+  origin: 'https://skill-scope-web-application-l5l8.vercel.app',
   credentials: true,
 }));
 router.use(express.json());
