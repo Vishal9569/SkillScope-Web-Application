@@ -3,7 +3,7 @@ const bcrypt = require("bcrypt");
 const jwt = require("jsonwebtoken");
 const cors = require("cors");
 const User = require("../models/userModel/user");
-const { loginSchema } = require("../validators/userValidator"); // removed registerSchema
+const { loginSchema } = require("../validators/userValidator"); 
 const router = express.Router();
 
 require("dotenv").config();
