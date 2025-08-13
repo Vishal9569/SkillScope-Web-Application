@@ -1,17 +1,14 @@
 const express = require("express");
 const bcrypt = require("bcrypt");
 const jwt = require("jsonwebtoken");
-const cors = require("cors");
+ 
 const User = require("../models/userModel/user");
 const { loginSchema } = require("../validators/userValidator"); 
 const router = express.Router();
 
 require("dotenv").config();
 
-router.use(cors({
-  origin: 'https://skill-scope-web-application-l5l8-jjssiyp4c-vishal9569s-projects.vercel.app/',
-  credentials: true,
-}));
+ 
 router.use(express.json());
 router.use(express.urlencoded({ extended: true }));
 
