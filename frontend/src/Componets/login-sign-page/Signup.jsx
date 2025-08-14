@@ -18,7 +18,7 @@ const Signup = () => {
 
         try {
             const { data } = await axios.post(
-                'http://localhost:8080/api/auth/register',
+                'https://skillscope-assessment.onrender.com/api/auth/register',
                 {
                     name: form.name.trim(),
                     email: form.email.trim().toLowerCase(),
