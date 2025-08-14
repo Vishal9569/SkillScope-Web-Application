@@ -21,7 +21,7 @@ const Login = () => {
 
         try {
             const { data } = await axios.post(
-                'http://localhost:8080/api/auth/login',
+                'https://skillscope-assessment.onrender.com/api/auth/login',
                 {
                     email: formData.email.trim().toLowerCase(),
                     password: formData.password
