@@ -29,7 +29,7 @@ const Login = () => {
             );
 
             localStorage.setItem('token', data.token);
-            localStorage.setItem('user', JSON.stringify(data.user)); // store user
+            localStorage.setItem('user', JSON.stringify(data.user));
 
             navigate('/');
             window.location.reload();
