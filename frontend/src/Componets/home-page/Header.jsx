@@ -8,7 +8,13 @@ const Header = ({ user, onLogout }) => {
 
     const checkSticky = () => {
         setIsSticky(window.scrollY > 100);
-    };
+    }; 
+
+      const OnLogout = () => {
+        localStorage.removeItem('token');
+        localStorage.removeItem('user');
+        window.location.reload();
+    }
 
     useEffect(() => {
         window.addEventListener('scroll', checkSticky);
@@ -61,7 +67,7 @@ const Header = ({ user, onLogout }) => {
                         </span>
                         <button
                             className="btn btn-outline-danger"
-                            onClick={onLogout}
+                            onClick={OnLogout}
                             style={{ marginLeft: '10px' }}
                         >
                             Logout
